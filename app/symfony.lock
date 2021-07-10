@@ -1,15 +1,21 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.2"
+    "doctrine/annotations": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
     },
     "doctrine/inflector": {
         "version": "2.0.3"
     },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.5"
-    },
-    "laminas/laminas-code": {
-        "version": "4.4.2"
+    "doctrine/lexer": {
+        "version": "1.2.1"
     },
     "nikic/php-parser": {
         "version": "v4.11.0"
@@ -120,9 +126,6 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
-    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.0"
     },
@@ -143,9 +146,6 @@
     },
     "symfony/profiler-pack": {
         "version": "v1.0.5"
-    },
-    "symfony/proxy-manager-bridge": {
-        "version": "v5.3.0"
     },
     "symfony/routing": {
         "version": "5.3",
