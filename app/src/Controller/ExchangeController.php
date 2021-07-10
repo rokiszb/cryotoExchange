@@ -25,13 +25,9 @@ class ExchangeController extends AbstractController
     }
 
 
-    #[Route('/exchange/{client}/{from}-{to}', name: 'exchange')]
-    public function index(string $from, string $to, string $client, Request $request): Response
+    #[Route('/exchange/{from}-{to}', name: 'exchange')]
+    public function index(string $from, string $to, Request $request): Response
     {
-        if (!in_array($client, self::EXCHANGE_CLIENTS)) {
-            throw new InvalidClientExpection('Client is not supported', Response::HTTP_BAD_REQUEST);
-        }
-
         $exchangeModel = new ExchangeModel($from, $to, $request->get('amount'));
         $response = $this->exchangeService->getExchangeRate($exchangeModel);
 
