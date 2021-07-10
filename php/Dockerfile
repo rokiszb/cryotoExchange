@@ -1,11 +1,4 @@
-FROM node:latest AS node_base
-
-RUN echo "NODE Version:" && node --version
-RUN echo "NPM Version:" && npm --version
-
 FROM php:8.0-fpm
-
-COPY --from=node_base . .
 
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
@@ -26,3 +19,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash \
+      && apt-get install -y nodejs
