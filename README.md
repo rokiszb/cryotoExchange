@@ -20,7 +20,7 @@ composer install
 
 **2. Or old school way. Download Composer dependencies**
 
-Make sure you have [Composer installed and php 7.2<](https://getcomposer.org/download/)
+Make sure you have [Composer](https://getcomposer.org/download/)  and php 7.2< installed
 and then run:
 
 ```
