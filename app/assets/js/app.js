@@ -1,8 +1,6 @@
-import Vue from 'vue';
-import App from './components/App';
-import '../css/app.css';
+import React from 'react';
+import { render } from 'react-dom';
+import ExchangeApp from './components/Exchange/ExchangeApp';
 
-new Vue({
-    el: '#app',
-    render: h => h(App)
-});
+console.log(<ExchangeApp />);
+render(<ExchangeApp />, document.getElementById('lift-stuff-app'));

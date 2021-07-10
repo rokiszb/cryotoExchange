@@ -6,11 +6,8 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
     .setOutputPath('public/build/')
     .setPublicPath('/build')
-    .enableVueLoader()
+    .enableReactPreset()
     .addEntry('app', './assets/js/app.js')
-
-    .enableStimulusBridge('./assets/controllers.json')
-
     .splitEntryChunks()
 
     .enableSingleRuntimeChunk()
@@ -18,12 +15,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
+    // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
-    .configureBabel((config) => {
-        config.plugins.push('@babel/plugin-proposal-class-properties');
-    })
-
+    // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
