@@ -1,4 +1,11 @@
+FROM node:latest AS node_base
+
+RUN echo "NODE Version:" && node --version
+RUN echo "NPM Version:" && npm --version
+
 FROM php:8.0-fpm
+
+COPY --from=node_base . .
 
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
@@ -10,8 +17,10 @@ RUN apt update \
 
 WORKDIR /var/www/symfony_docker
 
-RUN apt-get install npm -y
-RUN apt-get install -y yarn
+RUN apt-get update && apt-get install -y gnupg2
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install yarn -y
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
