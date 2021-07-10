@@ -14,6 +14,8 @@ PHP 8.0
 
 ```
 docker-compose up -d
+docker-compose exec php /bin/bash
+composer install
 ```
 
 **2. Or old school way. Download Composer dependencies**
